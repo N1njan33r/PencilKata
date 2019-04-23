@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PencilKata", "PencilKata\PencilKata.csproj", "{C8DC9B82-6E85-46F8-A50A-0597A2280628}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PencilKata_Test", "PencilKata_Test\PencilKata_Test.csproj", "{AD5D9B02-BE4D-4341-8F78-6B7E2B082F49}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8DC9B82-6E85-46F8-A50A-0597A2280628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8DC9B82-6E85-46F8-A50A-0597A2280628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8DC9B82-6E85-46F8-A50A-0597A2280628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8DC9B82-6E85-46F8-A50A-0597A2280628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD5D9B02-BE4D-4341-8F78-6B7E2B082F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5D9B02-BE4D-4341-8F78-6B7E2B082F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5D9B02-BE4D-4341-8F78-6B7E2B082F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5D9B02-BE4D-4341-8F78-6B7E2B082F49}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03F2A629-9C2E-4C06-B593-36F9E949B024}
+	EndGlobalSection
+EndGlobal
