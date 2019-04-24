@@ -55,5 +55,18 @@ namespace PencilKata_Test
 
             Assert.AreEqual(expectedDurability, actualDurability);
         }
+
+        [TestMethod]
+        public void PencilObjectShouldLoseOneDurabilityWhenWriteLowerCaseChar()
+        {
+            int expectedDurability = 19;
+            int actualDurability;
+
+            Pencil pencil = new Pencil(20);
+            pencil.Write("t");
+            actualDurability = pencil.Durability;
+
+            Assert.AreEqual(expectedDurability, actualDurability);
+        }
     }
 }

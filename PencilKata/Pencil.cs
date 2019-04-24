@@ -19,6 +19,10 @@
                 {
                     Durability -= 2;
                 }
+                else if(char.IsLower(c))
+                {
+                    Durability -= 1;
+                }
             }
             if (Written == null)
             {
