@@ -6,7 +6,16 @@
 
         public string Write(string input)
         {
-            return input;
+            if (Written == null)
+            {
+                Written = input;
+            }
+            else
+            {
+                Written += " " + input;
+            }
+
+            return Written;
         }
     }
 }

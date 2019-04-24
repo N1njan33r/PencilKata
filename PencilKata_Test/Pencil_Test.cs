@@ -6,14 +6,28 @@ namespace PencilKata_Test
     [TestClass]
     public class Pencil_Test
     {
+        Pencil pencil = new Pencil();
+
         [TestMethod]
         public void WriteMethodShouldAcceptAndReturnString()
         {
-            Pencil pencil = new Pencil();
+            string expectedText = "thing";
 
-            string write = pencil.Write("thing");
+            string actualText = pencil.Write("thing");
 
-            Assert.AreEqual(write, "thing");
+            Assert.AreEqual(expectedText, actualText);
+        }
+
+        [TestMethod]
+        public void WriteMethodShouldAppendTextToString()
+        {
+            string expectedText = "Hello World";
+            string actualText;
+
+            actualText = pencil.Write("Hello");
+            actualText = pencil.Write("World");
+
+            Assert.AreEqual(expectedText, actualText);
         }
     }
 }
