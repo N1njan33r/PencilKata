@@ -6,11 +6,6 @@
         public int Durability { get; set; }
         public int PointDurability { get; set; }
 
-        public Pencil() { }
-        public Pencil(int durability)
-        {
-            Durability = durability;
-        }
         public Pencil(int durability, int point)
         {
             Durability = durability;
@@ -21,19 +16,19 @@
         {
             foreach (char c in input)
             {
-                if (char.IsUpper(c))
+                if (PointDurability > 0)
                 {
-                    Durability -= 2;
-                    PointDurability -= 2;
-                }
-                else if(char.IsLower(c))
-                {
-                    Durability -= 1;
-                    PointDurability -= 1;
-                }
+                    if (char.IsUpper(c))
+                    {
+                        Durability -= 2;
+                        PointDurability -= 2;
+                    }
+                    else if(char.IsLower(c))
+                    {
+                        Durability -= 1;
+                        PointDurability -= 1;
+                    }
 
-                if (PointDurability >= 0)
-                {
                     Written += c;
                 }
                 else
@@ -47,7 +42,14 @@
 
         public void Sharpen(int point)
         {
-            PointDurability = point;
+            if (Durability < point)
+            {
+                PointDurability = Durability;
+            }
+            else
+            {
+                PointDurability = point;
+            }
         }
     }
 }

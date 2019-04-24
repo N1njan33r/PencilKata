@@ -37,7 +37,7 @@ namespace PencilKata_Test
             int expectedDurability = 20;
             int actualDurability;
 
-            Pencil pencil = new Pencil(20);
+            Pencil pencil = new Pencil(20, 20);
             actualDurability = pencil.Durability;
 
             Assert.AreEqual(expectedDurability, actualDurability);
@@ -49,7 +49,7 @@ namespace PencilKata_Test
             int expectedDurability = 18;
             int actualDurability;
 
-            Pencil pencil = new Pencil(20);
+            Pencil pencil = new Pencil(20, 1);
             pencil.Write("T");
             actualDurability = pencil.Durability;
 
@@ -62,7 +62,7 @@ namespace PencilKata_Test
             int expectedDurability = 19;
             int actualDurability;
 
-            Pencil pencil = new Pencil(20);
+            Pencil pencil = new Pencil(20, 1);
             pencil.Write("t");
             actualDurability = pencil.Durability;
 
@@ -75,7 +75,7 @@ namespace PencilKata_Test
             int expectedDurability = 20;
             int actualDurability;
 
-            Pencil pencil = new Pencil(20);
+            Pencil pencil = new Pencil(20, 20);
             pencil.Write(" ");
             actualDurability = pencil.Durability;
 
@@ -103,6 +103,21 @@ namespace PencilKata_Test
             string actualText;
 
             Pencil pencil = new Pencil(20, 5);
+            pencil.Write("Hello");
+            pencil.Sharpen(5);
+            pencil.Write(" World");
+            actualText = pencil.Written;
+
+            Assert.AreEqual(expectedText, actualText);
+        }
+
+        [TestMethod]
+        public void SharpenShouldResetDurabilityToChosenValueIfLessThanRemaining()
+        {
+            string expectedText = "Hell  Wo   ";
+            string actualText;
+
+            Pencil pencil = new Pencil(8, 5);
             pencil.Write("Hello");
             pencil.Sharpen(5);
             pencil.Write(" World");
