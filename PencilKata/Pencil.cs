@@ -3,6 +3,13 @@
     public class Pencil
     {
         public string Written { get; set; }
+        public int Durability { get; set; }
+
+        public Pencil() { }
+        public Pencil(int durability)
+        {
+            Durability = durability;
+        }
 
         public string Write(string input)
         {

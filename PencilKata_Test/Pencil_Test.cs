@@ -29,5 +29,17 @@ namespace PencilKata_Test
 
             Assert.AreEqual(expectedText, actualText);
         }
+
+        [TestMethod]
+        public void PencilObjectShouldHaveFiniteDurability()
+        {
+            int expectedDurability = 20;
+            int actualDurability;
+
+            Pencil pencil = new Pencil(20);
+            actualDurability = pencil.Durability;
+
+            Assert.AreEqual(expectedDurability, actualDurability);
+        }
     }
 }
