@@ -12,7 +12,7 @@ namespace PencilKata_Test
             string expectedText = "thing";
             string actualText;
 
-            Pencil pencil = new Pencil();
+            Pencil pencil = new Pencil(20, 20);
             actualText = pencil.Write("thing");
 
             Assert.AreEqual(expectedText, actualText);
@@ -24,9 +24,9 @@ namespace PencilKata_Test
             string expectedText = "Hello World";
             string actualText;
 
-            Pencil pencil = new Pencil();
+            Pencil pencil = new Pencil(20, 20);
             actualText = pencil.Write("Hello");
-            actualText = pencil.Write("World");
+            actualText = pencil.Write(" World");
 
             Assert.AreEqual(expectedText, actualText);
         }
@@ -80,6 +80,20 @@ namespace PencilKata_Test
             actualDurability = pencil.Durability;
 
             Assert.AreEqual(expectedDurability, actualDurability);
+        }
+
+        [TestMethod]
+        public void PointDurabilityFallingToZeroShouldWriteOnlySpaces()
+        {
+            string expectedText = "Hello Wor  ";
+            string actualText;
+
+            Pencil pencil = new Pencil(20, 10);
+            pencil.Write("Hello");
+            pencil.Write(" World");
+            actualText = pencil.Written;
+
+            Assert.AreEqual(expectedText, actualText);
         }
     }
 }

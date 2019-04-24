@@ -4,11 +4,17 @@
     {
         public string Written { get; set; }
         public int Durability { get; set; }
+        public int PointDurability { get; set; }
 
         public Pencil() { }
         public Pencil(int durability)
         {
             Durability = durability;
+        }
+        public Pencil(int durability, int point)
+        {
+            Durability = durability;
+            PointDurability = point;
         }
 
         public string Write(string input)
@@ -18,19 +24,22 @@
                 if (char.IsUpper(c))
                 {
                     Durability -= 2;
+                    PointDurability -= 2;
                 }
                 else if(char.IsLower(c))
                 {
                     Durability -= 1;
+                    PointDurability -= 1;
                 }
-            }
-            if (Written == null)
-            {
-                Written = input;
-            }
-            else
-            {
-                Written += " " + input;
+
+                if (PointDurability >= 0)
+                {
+                    Written += c;
+                }
+                else
+                {
+                    Written += " ";
+                }
             }
 
             return Written;
