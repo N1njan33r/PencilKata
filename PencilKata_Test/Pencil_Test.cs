@@ -95,5 +95,20 @@ namespace PencilKata_Test
 
             Assert.AreEqual(expectedText, actualText);
         }
+
+        [TestMethod]
+        public void SharpenShouldResetDurabilityToChosenValue()
+        {
+            string expectedText = "Hell  Worl ";
+            string actualText;
+
+            Pencil pencil = new Pencil(20, 5);
+            pencil.Write("Hello");
+            pencil.Sharpen(5);
+            pencil.Write(" World");
+            actualText = pencil.Written;
+
+            Assert.AreEqual(expectedText, actualText);
+        }
     }
 }

@@ -44,5 +44,10 @@
 
             return Written;
         }
+
+        public void Sharpen(int point)
+        {
+            PointDurability = point;
+        }
     }
 }
