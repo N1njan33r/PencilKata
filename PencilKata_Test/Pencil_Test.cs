@@ -6,14 +6,14 @@ namespace PencilKata_Test
     [TestClass]
     public class Pencil_Test
     {
-        Pencil pencil = new Pencil();
-
         [TestMethod]
         public void WriteMethodShouldAcceptAndReturnString()
         {
             string expectedText = "thing";
+            string actualText;
 
-            string actualText = pencil.Write("thing");
+            Pencil pencil = new Pencil();
+            actualText = pencil.Write("thing");
 
             Assert.AreEqual(expectedText, actualText);
         }
@@ -24,6 +24,7 @@ namespace PencilKata_Test
             string expectedText = "Hello World";
             string actualText;
 
+            Pencil pencil = new Pencil();
             actualText = pencil.Write("Hello");
             actualText = pencil.Write("World");
 
@@ -37,6 +38,19 @@ namespace PencilKata_Test
             int actualDurability;
 
             Pencil pencil = new Pencil(20);
+            actualDurability = pencil.Durability;
+
+            Assert.AreEqual(expectedDurability, actualDurability);
+        }
+
+        [TestMethod]
+        public void PencilObjectShouldLoseDurabilityWhenWriteCalled()
+        {
+            int expectedDurability = 18;
+            int actualDurability;
+
+            Pencil pencil = new Pencil(20);
+            pencil.Write("T");
             actualDurability = pencil.Durability;
 
             Assert.AreEqual(expectedDurability, actualDurability);
