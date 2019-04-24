@@ -68,5 +68,18 @@ namespace PencilKata_Test
 
             Assert.AreEqual(expectedDurability, actualDurability);
         }
+
+        [TestMethod]
+        public void PencilObjectShouldLoseNoDurabilityWhenWriteSpace()
+        {
+            int expectedDurability = 20;
+            int actualDurability;
+
+            Pencil pencil = new Pencil(20);
+            pencil.Write(" ");
+            actualDurability = pencil.Durability;
+
+            Assert.AreEqual(expectedDurability, actualDurability);
+        }
     }
 }
