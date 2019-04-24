@@ -1,12 +1,12 @@
 ﻿namespace PencilKata
 {
-    public class Write
+    public class Pencil
     {
         public string Written { get; set; }
 
-        public Write(string input)
+        public string Write(string input)
         {
-            Written = input;
+            return input;
         }
     }
 }
