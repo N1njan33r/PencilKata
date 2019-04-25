@@ -185,5 +185,20 @@ namespace PencilKata_Test
 
             Assert.AreEqual(expectedText, actualText);
         }
+
+        [TestMethod]
+        public void EditShouldKeepSpacesIfReplacementIsTooShort()
+        {
+            string inputText = "An apple a day keeps the doctor away";
+            string expectedText = "An owl   a day keeps the doctor away";
+            string actualText;
+
+            Pencil pencil = new Pencil(20, 20, 20);
+            pencil.Written = inputText;
+            pencil.Edit("apple", "owl");
+            actualText = pencil.Written;
+
+            Assert.AreEqual(expectedText, actualText);
+        }
     }
 }

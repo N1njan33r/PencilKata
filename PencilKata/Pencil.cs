@@ -92,14 +92,16 @@ namespace PencilKata
         public void Edit(string erased, string replacement)
         {
             int index = Written.LastIndexOf(erased);
+
             Erase(erased);
+
             if (string.IsNullOrWhiteSpace(Written.Substring(index, erased.Length)))
             {
                 if (replacement.Length == erased.Length)
                 {
                     Written = Written.Remove(index, erased.Length).Insert(index, replacement);
                 }
-                else if (replacement.Length > erased.Length)
+                else if (replacement.Length != erased.Length)
                 {
                     var sb = new StringBuilder(Written);
                     foreach (char c in replacement)
