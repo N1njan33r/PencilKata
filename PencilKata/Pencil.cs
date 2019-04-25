@@ -1,4 +1,6 @@
-﻿namespace PencilKata
+﻿using System.Text;
+
+namespace PencilKata
 {
     public class Pencil
     {
@@ -91,7 +93,31 @@
         {
             int index = Written.LastIndexOf(erased);
             Erase(erased);
-            Written = Written.Remove(index, erased.Length).Insert(index, replacement);
+            if (string.IsNullOrWhiteSpace(Written.Substring(index, erased.Length)))
+            {
+                if (replacement.Length == erased.Length)
+                {
+                    Written = Written.Remove(index, erased.Length).Insert(index, replacement);
+                }
+                else if (replacement.Length > erased.Length)
+                {
+                    var sb = new StringBuilder(Written);
+                    foreach (char c in replacement)
+                    {
+                        int i = index + replacement.IndexOf(c);
+                        if (char.IsWhiteSpace(Written, i))
+                        {
+                            sb.Remove(i, 1).Insert(i, c);
+                        }
+                        else
+                        {
+                            sb.Remove(i, 1).Insert(i, '@');
+                        }
+                    }
+
+                    Written = sb.ToString();
+                }
+            }
         }
     }
 }

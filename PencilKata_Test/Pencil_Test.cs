@@ -163,9 +163,24 @@ namespace PencilKata_Test
             string expectedText = "An onion a day keeps the doctor away";
             string actualText;
 
-            Pencil pencil = new Pencil(20, 20, 3);
+            Pencil pencil = new Pencil(20, 20, 20);
             pencil.Written = inputText;
             pencil.Edit("apple", "onion");
+            actualText = pencil.Written;
+
+            Assert.AreEqual(expectedText, actualText);
+        }
+
+        [TestMethod]
+        public void EditShouldReplaceErasedTextWithSymbolIfTooLong()
+        {
+            string inputText = "An apple a day keeps the doctor away";
+            string expectedText = "An artich@k@ay keeps the doctor away";
+            string actualText;
+
+            Pencil pencil = new Pencil(20, 20, 20);
+            pencil.Written = inputText;
+            pencil.Edit("apple", "artichoke");
             actualText = pencil.Written;
 
             Assert.AreEqual(expectedText, actualText);
