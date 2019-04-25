@@ -86,5 +86,12 @@
                 EraserDurability = 0;
             }
         }
+
+        public void Edit(string erased, string replacement)
+        {
+            int index = Written.LastIndexOf(erased);
+            Erase(erased);
+            Written = Written.Remove(index, erased.Length).Insert(index, replacement);
+        }
     }
 }

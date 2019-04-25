@@ -155,5 +155,20 @@ namespace PencilKata_Test
 
             Assert.AreEqual(expectedText, actualText);
         }
+
+        [TestMethod]
+        public void EditShouldReplaceErasedText()
+        {
+            string inputText = "An apple a day keeps the doctor away";
+            string expectedText = "An onion a day keeps the doctor away";
+            string actualText;
+
+            Pencil pencil = new Pencil(20, 20, 3);
+            pencil.Written = inputText;
+            pencil.Edit("apple", "onion");
+            actualText = pencil.Written;
+
+            Assert.AreEqual(expectedText, actualText);
+        }
     }
 }
