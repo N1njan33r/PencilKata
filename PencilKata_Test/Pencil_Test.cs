@@ -125,5 +125,20 @@ namespace PencilKata_Test
 
             Assert.AreEqual(expectedText, actualText);
         }
+
+        [TestMethod]
+        public void EraseShouldRemoveLastOccurrenceOfString()
+        {
+            string inputText = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?";
+            string expectedText = "How much wood would a woodchuck chuck if a woodchuck could       wood?";
+            string actualText;
+
+            Pencil pencil = new Pencil();
+            pencil.Written = inputText;
+            pencil.Erase("chuck");
+            actualText = pencil.Written;
+
+            Assert.AreEqual(expectedText, actualText);
+        }
     }
 }
