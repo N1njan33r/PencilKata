@@ -5,6 +5,7 @@
         public string Written { get; set; }
         public int Durability { get; set; }
         public int PointDurability { get; set; }
+        public int EraserDurability { get; set; }
 
         public Pencil()
         {
@@ -18,6 +19,12 @@
         {
             Durability = durability;
             PointDurability = point;
+        }
+        public Pencil(int durability, int point, int eraser)
+        {
+            Durability = durability;
+            PointDurability = point;
+            EraserDurability = eraser;
         }
 
         public string Write(string input)
@@ -62,11 +69,22 @@
 
         public void Erase(string erased)
         {
-            //Written = "How much wood would a woodchuck chuck if a woodchuck could       wood?";
             int index = Written.LastIndexOf(erased);
-            string emptySpace = "";
-            emptySpace = emptySpace.PadRight(erased.Length);
-            Written = Written.Remove(index, erased.Length).Insert(index, emptySpace);
+            string replacementString = "";
+
+            if (EraserDurability >= erased.Length)
+            {
+                replacementString = replacementString.PadRight(erased.Length);
+                Written = Written.Remove(index, erased.Length).Insert(index, replacementString);
+                EraserDurability -= erased.Length;
+            }
+            else
+            {
+                string erasedNew = erased.Substring(0, erased.Length - EraserDurability);
+                replacementString = erasedNew + replacementString.PadRight(EraserDurability);
+                Written = Written.Remove(index, erased.Length).Insert(index, replacementString);
+                EraserDurability = 0;
+            }
         }
     }
 }

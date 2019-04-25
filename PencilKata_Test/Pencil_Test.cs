@@ -133,9 +133,24 @@ namespace PencilKata_Test
             string expectedText = "How much wood would a woodchuck chuck if a woodchuck could       wood?";
             string actualText;
 
-            Pencil pencil = new Pencil();
+            Pencil pencil = new Pencil(20, 20, 20);
             pencil.Written = inputText;
             pencil.Erase("chuck");
+            actualText = pencil.Written;
+
+            Assert.AreEqual(expectedText, actualText);
+        }
+
+        [TestMethod]
+        public void EraseShouldOnlyEraseCharactersUntilDurabilityIsZero()
+        {
+            string inputText = "Buffalo Bill";
+            string expectedText = "Buffalo B   ";
+            string actualText;
+
+            Pencil pencil = new Pencil(20, 20, 3);
+            pencil.Written = inputText;
+            pencil.Erase("Bill");
             actualText = pencil.Written;
 
             Assert.AreEqual(expectedText, actualText);
